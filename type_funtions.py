@@ -27,8 +27,7 @@ def stype(instruct,register):
 def utype(instruct,register):
     opcode=instructionsU[instruct]
     t=sextUJ(int(register[1]))
-    return t+registers[register[0]]+opcode
-    
+    return t+registers[register[0]]+opcode    
 
 def jtype(instruct,register):
     t=sextUJ(int(register[1]))
