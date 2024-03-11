@@ -96,7 +96,7 @@ with open("D:/Coding/example.txt", 'r') as file:
 
 
 
-counter=1
+counter=0
 for n in lines:
     if ':' in str(n):
         n = n.strip()
@@ -117,7 +117,7 @@ for n in lines:
         instruct, reg=n.split(" ")
         register=list(map(str, reg.split(",")))   
        
-        counter+=1
+    counter+=1
 
     if instruct in instructionsR:
         print(rtype(instruct, register))
@@ -133,9 +133,6 @@ for n in lines:
         print(jtype(instruct, register))
     elif instruct in instructionsbonus:
         print(bonustype(instruct, register))  
-
-
-
 
 
 
