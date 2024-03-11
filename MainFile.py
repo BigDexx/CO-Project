@@ -69,12 +69,11 @@ def itype(instruct,register):
 
 def btype(instruct, register, counter):
     opcode = "1100011"
-    if register[2] not in labeldict:
+    if register[2] not in labeldict: 
         t = sextB(int(register[2]))
         return t[0] + t[2:8] + registers[register[1]] + registers[register[0]] + instructionsB[instruct] + t[8:12] + t[1] + opcode
     else:
-        t = sextB((counter - labeldict[register[2]])*4)
-       
+        t = sextB((counter-labeldict[register[2]])*4)   
         return t[0] + t[2:8] + registers[register[1]] + registers[register[0]] + instructionsB[instruct] + t[8:12] + t[1] + opcode  
     
 
@@ -97,7 +96,7 @@ with open("D:/Coding/example.txt", 'r') as file:
 
 
 
-counter=0
+counter=1
 for n in lines:
     if ':' in str(n):
         n = n.strip()
@@ -118,7 +117,7 @@ for n in lines:
         instruct, reg=n.split(" ")
         register=list(map(str, reg.split(",")))   
        
-    counter+=1
+        counter+=1
 
     if instruct in instructionsR:
         print(rtype(instruct, register))
@@ -134,6 +133,9 @@ for n in lines:
         print(jtype(instruct, register))
     elif instruct in instructionsbonus:
         print(bonustype(instruct, register))  
+
+
+
 
 
 
